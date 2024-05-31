@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RegisterationScreen extends StatefulWidget {
-  const RegisterationScreen({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
+
+  static const String id = 'registration_screen';
 
   @override
-  State<RegisterationScreen> createState() => _RegisterationScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _RegisterationScreenState extends State<RegisterationScreen> {
+class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +21,12 @@ class _RegisterationScreenState extends State<RegisterationScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              child: Image.asset('images/logo.png'),
-              height: 150.0,
+            Hero(
+              tag: 'logo',
+              child: Container(
+                child: Image.asset('images/logo.png'),
+                height: 150.0,
+              ),
             ),
             SizedBox(
               height: 48.0,
