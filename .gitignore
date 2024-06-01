@@ -56,7 +56,7 @@ DerivedData/
 
 # Flutter-related files
 *.lock
-!pubspec.lock
+pubspec.lock
 .flutter-plugins
 .flutter-plugins-dependencies
 .dart_tool/
