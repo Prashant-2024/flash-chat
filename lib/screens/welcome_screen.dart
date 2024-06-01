@@ -32,7 +32,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     controller.forward();
     controller.addListener(() {
       setState(() {});
-      print(controller.value);
     });
   }
 
@@ -78,15 +77,17 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           ),
           RoundedButton(
               buttonColor: Colors.lightBlueAccent,
-              onPressed: () => {
-                    Navigator.pushNamed(context, LoginScreen.id),
-                  },
+              onPressed: () =>
+              {
+                Navigator.pushNamed(context, LoginScreen.id),
+              },
               buttonText: "Log In"),
           RoundedButton(
               buttonColor: Colors.blue,
-              onPressed: () => {
-                    Navigator.pushNamed(context, RegistrationScreen.id),
-                  },
+              onPressed: () =>
+              {
+                Navigator.pushNamed(context, RegistrationScreen.id),
+              },
               buttonText: "Sign Up")
         ],
       ),
