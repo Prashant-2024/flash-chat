@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/animation.dart';
@@ -75,45 +76,18 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           SizedBox(
             height: 30.0,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: Material(
-              elevation: 5.0,
-              borderRadius: BorderRadius.circular(25.0),
-              color: Colors.lightBlueAccent,
-              child: MaterialButton(
-                onPressed: () => {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => LoginScreen()),
-                  // )
-                  Navigator.pushNamed(context, LoginScreen.id),
-                },
-                child: Text("Log In"),
-                minWidth: 320.0,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: Material(
-              elevation: 5.0,
-              borderRadius: BorderRadius.circular(25.0),
-              color: Colors.lightBlueAccent,
-              child: MaterialButton(
-                onPressed: () => {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => RegistrationScreen()),
-                  // )
-                  Navigator.pushNamed(context, RegistrationScreen.id),
-                },
-                child: Text("Sign Up"),
-                minWidth: 320.0,
-              ),
-            ),
-          )
+          RoundedButton(
+              buttonColor: Colors.lightBlueAccent,
+              onPressed: () => {
+                    Navigator.pushNamed(context, LoginScreen.id),
+                  },
+              buttonText: "Log In"),
+          RoundedButton(
+              buttonColor: Colors.blue,
+              onPressed: () => {
+                    Navigator.pushNamed(context, RegistrationScreen.id),
+                  },
+              buttonText: "Sign Up")
         ],
       ),
     );
