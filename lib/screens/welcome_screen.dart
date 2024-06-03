@@ -51,11 +51,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Hero(
-                tag: 'logo',
-                child: Container(
-                  child: Image.asset('images/logo.png'),
-                  height: animate.value * 60,
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: Container(
+                    child: Image.asset('images/logo.png'),
+                    height: animate.value * 60,
+                  ),
                 ),
               ),
               AnimatedTextKit(
@@ -77,17 +79,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           ),
           RoundedButton(
               buttonColor: Colors.lightBlueAccent,
-              onPressed: () =>
-              {
-                Navigator.pushNamed(context, LoginScreen.id),
-              },
+              onPressed: () => {
+                    Navigator.pushNamed(context, LoginScreen.id),
+                  },
               buttonText: "Log In"),
           RoundedButton(
               buttonColor: Colors.blue,
-              onPressed: () =>
-              {
-                Navigator.pushNamed(context, RegistrationScreen.id),
-              },
+              onPressed: () => {
+                    Navigator.pushNamed(context, RegistrationScreen.id),
+                  },
               buttonText: "Sign Up")
         ],
       ),
