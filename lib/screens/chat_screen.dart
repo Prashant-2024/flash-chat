@@ -30,7 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
       final user = await _auth.currentUser;
       if (user != null) {
         loggedInUser = user;
-        print(loggedInUser.email);
+        print(loggedInUser);
       }
     } catch (e) {
       print(e);
@@ -84,7 +84,9 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            MessagesStream(),
+            MessagesStream(
+              loggedInUser: loggedInUser,
+            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -105,8 +107,11 @@ class _ChatScreenState extends State<ChatScreen> {
                       //   Send Implmentaion
                       //   messageText + user.email
                       messageTextController.clear(),
-                      _firestore.collection("messages").add(
-                          {'text': messageText, 'sender': loggedInUser.email}),
+                      _firestore.collection("messages").add({
+                        'text': messageText,
+                        'sender': loggedInUser.email,
+                        'timestamp': FieldValue.serverTimestamp(),
+                      }),
                     },
                     child: Text(
                       "Send",
